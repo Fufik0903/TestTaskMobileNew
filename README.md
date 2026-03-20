@@ -1,97 +1,112 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Test Task Mobile App
 
-# Getting Started
+React Native приложение с использованием Redux Toolkit и Redux Persist для кэширования состояния.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📱 О проекте
 
-## Step 1: Start Metro
+Мобильное приложение, разработанное на React Native 0.78.0. Включает в себя управление состоянием через Redux Toolkit с сохранением данных между сессиями (Redux Persist), навигацию, работу с сетью и набор готовых UI компонентов.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🚀 Запуск проекта
 
-```sh
-# Using npm
-npm start
+### Требования
 
-# OR using Yarn
-yarn start
+| Компонент  | Версия                 |
+| ---------- | ---------------------- |
+| Node.js    | >= 18                  |
+| npm / yarn | последняя стабильная   |
+| iOS        | Xcode 14+, CocoaPods   |
+| Android    | Android Studio, JDK 17 |
+
+### Установка
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/Fufik0903/TestTaskMobileNew.git
+cd TestTaskMobileNew
+
+# Установка npm пакетов
+npm install
+# или
+yarn install
+
+# Установка iOS зависимостей (только для iOS)
+cd ios && pod install && cd ..
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+Запуск на iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
-```
+# или
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+npx react-native run-ios
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Запуск на Android
+npm run android
 
-## Step 3: Modify your app
+# или
 
-Now that you have successfully run the app, let's make changes!
+npx react-native run-android
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Запуск Metro (отдельно)
+npm start
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+# или
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+npx react-native start --reset-cache
+Очистка кэша
 
-## Congratulations! :tada:
+# Очистка Metro
 
-You've successfully run and modified your React Native App. :partying_face:
+npx react-native start --reset-cache
 
-### Now what?
+# Полная переустановка
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+rm -rf node_modules && npm install
+cd ios && rm -rf Pods Podfile.lock && pod install && cd ..
 
-# Troubleshooting
+📚 Используемые библиотеки
+🧩 Основные
+Библиотека Версия Назначение
+react-native 0.78.0 Фреймворк для кросс-платформенной разработки
+react 19.0.0 UI библиотека
+🗃 Управление состоянием
+Библиотека Версия Назначение
+@reduxjs/toolkit ^2.11.2 Управление состоянием приложения
+react-redux ^9.2.0 Связь React с Redux
+redux-persist ^6.0.0 Кэширование состояния в AsyncStorage
+@react-native-async-storage/async-storage ^1.24.0 Хранилище для persist
+🧭 Навигация
+Библиотека Версия Назначение
+@react-navigation/native ^7.0.0 Основная навигация
+@react-navigation/stack ^7.0.0 Стековая навигация
+@react-navigation/bottom-tabs ^7.0.0 Таб-навигация
+react-native-screens ^4.0.0 Оптимизация навигации
+react-native-safe-area-context ^5.0.0 Безопасные зоны
+🎨 UI компоненты и анимации
+Библиотека Версия Назначение
+react-native-svg ^15.15.4 Работа с SVG
+react-native-linear-gradient ^2.8.3 Градиенты
+react-native-skeleton-placeholder ^5.2.4 Скелетоны загрузки
+@gorhom/bottom-sheet ^4.6.4 Нижние шторки
+react-native-reanimated ^3.16.0 Анимации
+react-native-gesture-handler ^2.30.0 Обработка жестов
+react-native-reanimated-carousel ^4.0.3 Карусель с анимациями
+🌐 Работа с сетью
+Библиотека Версия Назначение
+axios ^1.13.6 HTTP запросы
+🔧 Инструменты разработки
+Библиотека Версия Назначение
+typescript ^5.9.3 Типизация
+@react-native-community/cli 15.0.1 CLI для React Native
+@react-native/metro-config 0.78.0 Конфигурация Metro
+react-native-svg-transformer ^1.5.3 Трансформация SVG для Metro
+jest ^29.6.3 Тестирование
+eslint ^8.19.0 Линтинг
+prettier 2.8.8 Форматирование кода
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Архитектурные подходы
+FSD
+Управление состоянием (Redux Toolkit + Redux Persist)
+Компонентный подход
